@@ -44,7 +44,12 @@ Writing short, SEO-friendly blogs or social content is time-consuming. This app 
 5. **Streamlit** displays the blog and offers a download button.
 6. Click the button to download the text version of the blog content
 ---
+## Streamlit UI Screenprint
 
+<img width="976" height="778" alt="image" src="https://github.com/user-attachments/assets/a49544a1-a95c-4c2d-b552-099c3d72bbab" />
+
+
+---
 ## 🧪 Testing the API with Postman
 
 You can test the backend independently using [**Postman**](https://www.postman.com/).
