@@ -18,7 +18,7 @@ def blog_generator_using_aws(blog_topic:str)-> str:
    read_timeout=60 sets the maximum time (in seconds) the client will wait for a complete response from AWS after sending a request.
    connect_timeout=60 sets the maximum time (in seconds) the client will wait to establish a connection to the AWS service. By setting both to 60 seconds, you are increasing the default timeouts, which can help prevent timeout errors when dealing with slow network connections or long-running AWS operations.
    """
-    client = boto3.client("bedrock-runtime", region_name="us-east-1", config=botocore.config.Config(read_timeout=300, connect_timeout=60, retries={"max_attempts": 3}))
+    client = boto3.client("bedrock-runtime", region_name="us-east-1", config=botocore.config.Config(read_timeout=3000,retries={'max_attempts':3}))
 
     # Define the model ID for the Bedrock AI model you want to use.
     model_id = "meta.llama3-8b-instruct-v1:0"
@@ -27,7 +27,7 @@ def blog_generator_using_aws(blog_topic:str)-> str:
     prompt = f"Generate a 200 word blog on the topic: {blog_topic}"
 
     # Embed the prompt in Llama 3's instruction format.
-    formatted_prompt = formatted_prompt = f"""
+    formatted_prompt  = f"""
     <|begin_of_text|><|start_header_id|>user<|end_header_id|>
     {prompt}
     <|eot_id|>
@@ -115,15 +115,15 @@ def lambda_handler(event, context):
         current_time = datetime.now().strftime("%H:%M:%S")
         # Save the generated blog content to an S3 bucket in the format "blog_<current_time>.txt" in the folder "blog-output".
         s3_key = f"blog-output/blog_{current_time}.txt"
-        # Create a S3 Bucket to store the generated blog content.
-        # You need to create the S3 bucket with the same name in your AWS account.
+        # Create a S3 Bucket 
         s3_bucket = "aws-bedrock-blog-generator1"
         save_blog_to_s3(s3_bucket, s3_key, blog_content)
     
     # Return the generated blog content as the response.
-    return{
-        'statusCode':200,
-        'body':json.dumps('Blog Generation is completed')
-    }
-
-# This code is designed to be run in an AWS Lambda environment, where it can be triggered by HTTP requests or other AWS services.
+    return {
+    'statusCode': 200,
+    'body': json.dumps({
+        "message": "Blog generated successfully",
+        "blog": blog_content
+    })
+}
