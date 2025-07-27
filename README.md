@@ -14,6 +14,10 @@ It features:
 Writing short, SEO-friendly blogs or social content is time-consuming. This app allows users to enter any topic and receive an AI-generated, human-like blog in seconds.
 
 ---
+## 🧱 Architecture Diagram
+<img width="960" height="540" alt="Demo" src="https://github.com/user-attachments/assets/0945efb2-533c-4988-bd34-4fa0adb544ac" />
+
+---
 
 ## ⚙️ Technology Stack
 
