@@ -58,7 +58,7 @@ You can test the backend independently using [**Postman**](https://www.postman.c
 
 **Endpoint**  
 ```
-POST https://oqvms0bstc.execute-api.us-east-1.amazonaws.com/dev_env/blog-generation
+POST https://endpoint
 ```
 
 **Headers**
