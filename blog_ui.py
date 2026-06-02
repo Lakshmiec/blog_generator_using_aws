@@ -3,7 +3,7 @@ import requests
 import json
 
 # Replace this with your actual API Gateway endpoint
-API_ENDPOINT = "https://oqvms0bstc.execute-api.us-east-1.amazonaws.com/dev_env/blog-generation"
+API_ENDPOINT = "api_endpoint"
 
 st.title("📝 AI Blog Generator")
 
